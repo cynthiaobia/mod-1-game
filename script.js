@@ -24,53 +24,44 @@ for (let i = 0; i <= 8; i++){
 //  0 4 8
 //  2 4 6
 
-const player = {mark: 'x', turn: false};
-const computer = {mark: 'o', turn: false}; 
+const player = {mark: 'x', move: true};
+const computer = {mark: 'o', move: true}; 
 
-// register clicks to check whether area clicked is in grid or not
+// checks if player can make move as long as grid-item is empty
+function playerMove(item) {
+    if (item.textContent === 'null') {
+        item.textContent = player.mark;
+        player.move = false;
+        computer.move = true;
+    }
+}
+
+// checks if computer can make move as long as grid-item is empty
+function computerMove(item){
+    if (item.textContent === 'null') {
+        item.textContent = computer.mark;
+        computer.move = false;
+        player.move = true;
+    }
+}
+
+// register clicks to check whether area clicked is within grid
 function isGridItem(e){
-    // determine whether selection clicked is in grid, register clicks
-    let isItem = true;
     const selection = e.target;
     e.preventDefault();
-    // check to see if clicking within grid
+
     if ((selection.className === 'grid-item')){
-        isItem = true;
-        console.log(`click is within grid`);
-        // check to see if grid item empty for placement of item
-        if (selection.textContent === 'null'){
-            console.log(`item is empty`);
-            selection.textContent = 'x'; // replaces value with x if empty
+        if (player.move === true){
+            playerMove(selection);
         }
-        else {
-            console.log(`item is not empty`);
+        else if (computer.move === true) {
+            computerMove(selection);
         }
     }
+    // clicks outside grid
     else {
-        isItem = false;
         console.log(`click is outside grid`);
     }
 }
 
-
 document.addEventListener('click', isGridItem);
-
-// =============== write function to take turns, alternate players
-let playerMove = true;
-let computerMove = false;
-
-if (playerMove === true){
-    // then set to false, player cannot click until value changes on grid for o
-}
-else {
-
-}
-function disableClick(e){
-    e.stopPropogation();
-    e.preventDefault();
-}
-
-function takeTurns(){
-
-    // 
-}
