@@ -27,14 +27,16 @@ console.log(arr);
 // register clicks to check whether area clicked is in grid or not
 function isGridItem(e){
     // determine whether selection clicked is in grid, register clicks
-    const isItem = false;
+    let isItem = true;
     const selection = e.target;
-    event.preventDefault();
-    if (selection.className !== 'grid-item'){
-        console.log(false);
+    e.preventDefault();
+    if (selection.className === 'grid-item'){
+        isItem = true;
+        console.log(true);
     }
     else {
-        console.log(true);
+        isItem = false;
+        console.log(false);
     }
 }
 
