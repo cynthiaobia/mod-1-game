@@ -1,6 +1,12 @@
 // combinations
 
-const arr = [0, 1, 2, 3, 4, 5, 6, 7, 0];
+const arr = []
+for (let i = 0; i <= 8; i++){
+    arr.push(i);
+}
+console.log(arr);
+
+// incorporate DOM
 
 // practice inputs
 // there are 8 winning combinations in tic tac toe

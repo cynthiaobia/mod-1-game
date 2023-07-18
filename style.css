@@ -1,0 +1,16 @@
+body {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+}
+
+.grid-item {
+    display: inline-block;
+    border: solid 1px;
+}
