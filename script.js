@@ -35,32 +35,32 @@ let gameOver = false;
 
 // checking for winning conditions
 
-// HORIZONTAL WIN
 function isGameOver() {
-    if (trackMarks[0] === trackMarks[1] === [trackMarks[2]]) {
+    // HORIZONTAL WIN
+    if (trackMarks[0] === trackMarks[1] && trackMarks[1] === trackMarks[2] && trackMarks[0] !== '') {
         gameOver = true;
     }
-    else if (trackMarks[3] === trackMarks[4] === [trackMarks[5]]) {
+    else if (trackMarks[3] === trackMarks[4] && trackMarks[4] === trackMarks[5] && trackMarks[3] !== '') {
         gameOver = true;
     }
-    else if (trackMarks[6] === trackMarks[7] === [trackMarks[8]]) {
+    else if (trackMarks[6] === trackMarks[7] && trackMarks[7] === trackMarks[8] && trackMarks[6] !== '') {
         gameOver = true;
     }
     // VERTICAL WIN
-    else if (trackMarks[0] === trackMarks[3] === [trackMarks[6]]) {
+    else if (trackMarks[0] === trackMarks[3] && trackMarks[3] === trackMarks[6] && trackMarks[0] !== '') {
         gameOver = true;
     }
-    else if (trackMarks[1] === trackMarks[4] === [trackMarks[7]]) {
+    else if (trackMarks[1] === trackMarks[4] && trackMarks[4] === trackMarks[7] && trackMarks[1] !== '') {
         gameOver = true;
     }
-    else if (trackMarks[2] === trackMarks[5] === [trackMarks[8]]) {
+    else if (trackMarks[2] === trackMarks[5] && trackMarks[5] === trackMarks[8] && trackMarks[2] !== '') {
         gameOver = true;
     }
     // DIAGONAL WIN
-    else if (trackMarks[0] === trackMarks[4] === [trackMarks[8]]) {
+    else if (trackMarks[0] === trackMarks[4] && trackMarks[4] === trackMarks[8] && trackMarks[0] !== '') {
         gameOver = true;
     }
-    else if (trackMarks[2] === trackMarks[4] === [trackMarks[6]]) {
+    else if (trackMarks[2] === trackMarks[4] && trackMarks[4] === trackMarks[6] && trackMarks[2] !== '') {
         gameOver = true;
     }
     console.log(`is game over? ${gameOver}`);
