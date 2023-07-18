@@ -21,39 +21,39 @@ let gameOver = false;
 
 // checking for winning conditions
 function isGameOver() {
-    // condition where if there is a draw
+    // condition where if there is a draw/tie
     if (trackMarks.includes('') === false ){
         gameOver = true;
     }
 
     else {
-    // HORIZONTAL WIN
-    if (trackMarks[0] === trackMarks[1] && trackMarks[1] === trackMarks[2] && trackMarks[0] !== '') {
-        gameOver = true;
-    }
-    else if (trackMarks[3] === trackMarks[4] && trackMarks[4] === trackMarks[5] && trackMarks[3] !== '') {
-        gameOver = true;
-    }
-    else if (trackMarks[6] === trackMarks[7] && trackMarks[7] === trackMarks[8] && trackMarks[6] !== '') {
-        gameOver = true;
-    }
-    // VERTICAL WIN
-    else if (trackMarks[0] === trackMarks[3] && trackMarks[3] === trackMarks[6] && trackMarks[0] !== '') {
-        gameOver = true;
-    }
-    else if (trackMarks[1] === trackMarks[4] && trackMarks[4] === trackMarks[7] && trackMarks[1] !== '') {
-        gameOver = true;
-    }
-    else if (trackMarks[2] === trackMarks[5] && trackMarks[5] === trackMarks[8] && trackMarks[2] !== '') {
-        gameOver = true;
-    }
-    // DIAGONAL WIN
-    else if (trackMarks[0] === trackMarks[4] && trackMarks[4] === trackMarks[8] && trackMarks[0] !== '') {
-        gameOver = true;
-    }
-    else if (trackMarks[2] === trackMarks[4] && trackMarks[4] === trackMarks[6] && trackMarks[2] !== '') {
-        gameOver = true;
-    }
+        // HORIZONTAL WIN
+        if (trackMarks[0] === trackMarks[1] && trackMarks[1] === trackMarks[2] && trackMarks[0] !== '') {
+            gameOver = true;
+        }
+        else if (trackMarks[3] === trackMarks[4] && trackMarks[4] === trackMarks[5] && trackMarks[3] !== '') {
+            gameOver = true;
+        }
+        else if (trackMarks[6] === trackMarks[7] && trackMarks[7] === trackMarks[8] && trackMarks[6] !== '') {
+            gameOver = true;
+        }
+        // VERTICAL WIN
+        else if (trackMarks[0] === trackMarks[3] && trackMarks[3] === trackMarks[6] && trackMarks[0] !== '') {
+            gameOver = true;
+        }
+        else if (trackMarks[1] === trackMarks[4] && trackMarks[4] === trackMarks[7] && trackMarks[1] !== '') {
+            gameOver = true;
+        }
+        else if (trackMarks[2] === trackMarks[5] && trackMarks[5] === trackMarks[8] && trackMarks[2] !== '') {
+            gameOver = true;
+        }
+        // DIAGONAL WIN
+        else if (trackMarks[0] === trackMarks[4] && trackMarks[4] === trackMarks[8] && trackMarks[0] !== '') {
+            gameOver = true;
+        }
+        else if (trackMarks[2] === trackMarks[4] && trackMarks[4] === trackMarks[6] && trackMarks[2] !== '') {
+            gameOver = true;
+        }
     }
     console.log(`is game over? ${gameOver}`);
     return gameOver;
@@ -71,6 +71,18 @@ function playerMove(item) {
 // checks if computer can make move as long as grid-item is empty
 function computerMove(item){
     if (item.textContent === 'null') {
+        
+        // figure out how to find empty entries in array, select random entry to place o
+        let emptyStrArr = [];
+        for (let i = 0; i < trackMarks.length; i++){
+            // get index of empty string in arr
+            if (trackMarks[i] === ''){
+                emptyStrArr.push(i);
+            }
+        }
+        console.log(emptyStrArr);
+        // for random i in emptyStrArr.length, set textContent, etc.
+
         item.textContent = computer.marker;
         computer.move = false;
         player.move = true;
@@ -111,7 +123,7 @@ function isGridItem(e){
 
 document.addEventListener('click', isGridItem);
 
-
+// make computer player auto instead of click
 // if win, make text larger and bolder, end game
 // alert message for illegal move
 // alert message for winner
