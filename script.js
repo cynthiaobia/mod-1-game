@@ -33,19 +33,19 @@ function isGridItem(e){
     // check to see if clicking within grid
     if ((selection.className === 'grid-item')){
         isItem = true;
-        // console.log(true);
+        console.log(`click is within grid`);
         // check to see if grid item empty for placement of item
         if (selection.textContent === 'null'){
-            // console.log(true); // will print true 2 times because of previous condition
+            console.log(`item is empty`);
             selection.textContent = 'x'; // replaces value with x if empty
         }
         else {
-            //console.log(false);
+            console.log(`item is not empty`);
         }
     }
     else {
         isItem = false;
-        //console.log(false);
+        console.log(`click is outside grid`);
     }
 }
 document.addEventListener('click', isGridItem);
@@ -69,4 +69,3 @@ function takeTurns(){
 
     // 
 }
-
