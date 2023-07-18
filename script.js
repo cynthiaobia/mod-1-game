@@ -58,23 +58,28 @@ function isGridItem(e){
         const index = selection.id;
         if (player.move === true){
             playerMove(selection);
-            trackMarks[index] = player.marker;
+            // checks so it doesn't replace exisiting marker
+            if (trackMarks[index] === '') { 
+                trackMarks[index] = player.marker;
+            }
         }
         else if (computer.move === true) {
             computerMove(selection);
-            trackMarks[index] = computer.marker;
+            // checks so it doesn't replace exisiting marker
+            if (trackMarks[index] === '') {
+                trackMarks[index] = computer.marker;
+            }
         }
         // find at index and replace
         // console.log(selection.id);
         
         console.log(trackMarks);
+        console.log(`player move: ${player.move}`);
     }
-    // clicks outside grid
+    // clicks outside grid, illegal move
     else {
         console.log(`click is outside grid`);
-    }
-
-    
+    } 
 }
 
 document.addEventListener('click', isGridItem);
