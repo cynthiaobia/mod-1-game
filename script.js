@@ -30,25 +30,25 @@ function isGridItem(e){
     let isItem = true;
     const selection = e.target;
     e.preventDefault();
-    if (selection.className === 'grid-item'){
+    // check to see if clicking within grid
+    if ((selection.className === 'grid-item')){
         isItem = true;
         console.log(true);
+
+        // check to see if grid item empty for placement of item
+        if (selection.textContent === 'null'){
+            console.log(true); // will print true 2 times because of previous condition
+            selection.textContent = 'x'; // replaces value with x if empty
+        }
+        else {
+            console.log(false);
+        }
     }
     else {
         isItem = false;
         console.log(false);
     }
 }
-
 document.addEventListener('click', isGridItem);
 
-/*
-topMenuEl.addEventListener('click', function(event){
-    const ele = event.target;
-    event.preventDefault();
-    if (ele.tagName === 'A' ){
-        console.log(ele.textContent);
-        //ele.removeClass('active')
-    }
-});
-*/
+// check for condition if empty
