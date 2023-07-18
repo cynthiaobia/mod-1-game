@@ -33,22 +33,40 @@ function isGridItem(e){
     // check to see if clicking within grid
     if ((selection.className === 'grid-item')){
         isItem = true;
-        console.log(true);
-
+        // console.log(true);
         // check to see if grid item empty for placement of item
         if (selection.textContent === 'null'){
-            console.log(true); // will print true 2 times because of previous condition
+            // console.log(true); // will print true 2 times because of previous condition
             selection.textContent = 'x'; // replaces value with x if empty
         }
         else {
-            console.log(false);
+            //console.log(false);
         }
     }
     else {
         isItem = false;
-        console.log(false);
+        //console.log(false);
     }
 }
 document.addEventListener('click', isGridItem);
 
-// check for condition if empty
+// =============== write function to take turns, alternate players
+let playerMove = true;
+let computerMove = false;
+
+if (playerMove === true){
+    // then set to false, player cannot click until value changes on grid for o
+}
+else {
+
+}
+function disableClick(e){
+    e.stopPropogation();
+    e.preventDefault();
+}
+
+function takeTurns(){
+
+    // 
+}
+
