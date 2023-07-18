@@ -1,17 +1,3 @@
-// there are 8 winning combinations in tic tac toe
-
-// WINNING COMBINATIONS
-// HORIZONTALLY:
-//  0 1 2
-//  3 4 5
-//  6 7 8
-// VERTICALLY:
-//  0 3 6
-//  1 4 7
-//  2 5 8
-// DIAGONALLY:
-//  0 4 8
-//  2 4 6
 
 const player = {
     marker: 'x', 
@@ -34,8 +20,13 @@ for (let i = 0; i <= 8; i++){
 let gameOver = false;
 
 // checking for winning conditions
-
 function isGameOver() {
+    // condition where if there is a draw
+    if (trackMarks.includes('') === false ){
+        gameOver = true;
+    }
+
+    else {
     // HORIZONTAL WIN
     if (trackMarks[0] === trackMarks[1] && trackMarks[1] === trackMarks[2] && trackMarks[0] !== '') {
         gameOver = true;
@@ -62,6 +53,7 @@ function isGameOver() {
     }
     else if (trackMarks[2] === trackMarks[4] && trackMarks[4] === trackMarks[6] && trackMarks[2] !== '') {
         gameOver = true;
+    }
     }
     console.log(`is game over? ${gameOver}`);
     return gameOver;
