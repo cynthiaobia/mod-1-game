@@ -4,7 +4,7 @@ const arr = []
 for (let i = 0; i <= 8; i++){
     arr.push(i);
 }
-console.log(arr);
+// console.log(arr);
 
 // incorporate DOM
 
@@ -23,6 +23,9 @@ console.log(arr);
 // DIAGONALLY:
 //  0 4 8
 //  2 4 6
+
+const player = {mark: 'x', turn: false};
+const computer = {mark: 'o', turn: false}; 
 
 // register clicks to check whether area clicked is in grid or not
 function isGridItem(e){
@@ -48,6 +51,8 @@ function isGridItem(e){
         console.log(`click is outside grid`);
     }
 }
+
+
 document.addEventListener('click', isGridItem);
 
 // =============== write function to take turns, alternate players
