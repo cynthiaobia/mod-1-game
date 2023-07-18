@@ -15,21 +15,57 @@
 
 const player = {
     marker: 'x', 
-    move: true, 
-    win: false};
+    move: true,
+    win: false
+};
 
 const computer = {
     marker: 'o', 
-    move: true, 
-    win: false};
+    move: true,
+    win: false
+};
 
 // track marks in object. replace id name with mark at appropriate index
 const trackMarks = []
-    for (let i = 0; i <= 8; i++){
-        trackMarks.push('');
+for (let i = 0; i <= 8; i++){
+    trackMarks.push('');
+}
+
+let gameOver = false;
+
+// checking for winning conditions
+
+// HORIZONTAL WIN
+function isGameOver() {
+    if (trackMarks[0] === trackMarks[1] === [trackMarks[2]]) {
+        gameOver = true;
     }
-
-
+    else if (trackMarks[3] === trackMarks[4] === [trackMarks[5]]) {
+        gameOver = true;
+    }
+    else if (trackMarks[6] === trackMarks[7] === [trackMarks[8]]) {
+        gameOver = true;
+    }
+    // VERTICAL WIN
+    else if (trackMarks[0] === trackMarks[3] === [trackMarks[6]]) {
+        gameOver = true;
+    }
+    else if (trackMarks[1] === trackMarks[4] === [trackMarks[7]]) {
+        gameOver = true;
+    }
+    else if (trackMarks[2] === trackMarks[5] === [trackMarks[8]]) {
+        gameOver = true;
+    }
+    // DIAGONAL WIN
+    else if (trackMarks[0] === trackMarks[4] === [trackMarks[8]]) {
+        gameOver = true;
+    }
+    else if (trackMarks[2] === trackMarks[4] === [trackMarks[6]]) {
+        gameOver = true;
+    }
+    console.log(`is game over? ${gameOver}`);
+    return gameOver;
+}
 
 // checks if player can make move as long as grid-item is empty
 function playerMove(item) {
@@ -60,7 +96,7 @@ function isGridItem(e){
             playerMove(selection);
             // checks so it doesn't replace exisiting marker
             if (trackMarks[index] === '') { 
-                trackMarks[index] = player.marker;
+                trackMarks[index] = player.marker
             }
         }
         else if (computer.move === true) {
@@ -70,18 +106,19 @@ function isGridItem(e){
                 trackMarks[index] = computer.marker;
             }
         }
-        // find at index and replace
-        // console.log(selection.id);
-        
+
         console.log(trackMarks);
         console.log(`player move: ${player.move}`);
     }
     // clicks outside grid, illegal move
     else {
         console.log(`click is outside grid`);
-    } 
+    }
+    gameOver = isGameOver(); 
 }
 
 document.addEventListener('click', isGridItem);
 
+
 // if win, make text larger and bolder, end game
+
