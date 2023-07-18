@@ -113,4 +113,8 @@ document.addEventListener('click', isGridItem);
 
 
 // if win, make text larger and bolder, end game
+// alert message for illegal move
+// alert message for winner
+// alert message for loser
+// reset board to play again
 
