@@ -15,4 +15,8 @@ body {
     border: solid 1px;
 }
 
+.player-alert, .computer-alert {
+    visibility: hidden;
+}
+
 /* light mode, dark mode, pink mode */

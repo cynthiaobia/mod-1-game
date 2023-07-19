@@ -19,6 +19,11 @@ for (let i = 0; i <= 8; i++){
 
 let gameOver = false;
 
+// working on alerts
+const playerAlert = document.querySelector('.player-alert');
+console.log(playerAlert);
+
+
 // checking for winning conditions
 function isGameOver() {
     // condition where if there is a draw/tie
@@ -59,9 +64,29 @@ function isGameOver() {
     return gameOver;
 }
 
+// figure out how to find empty entries in arr, select random entry to place o
+function generateCompMove(){
+    let emptyStrArr = [];
+    let index = 0;
+    for (let i = 0; i < trackMarks.length; i++) {
+        // get index of empty str in arr
+        if (trackMarks[i] === ''){
+            emptyStrArr.push(i);
+        }
+    }
+
+    console.log(emptyStrArr);
+    index = Math.floor(Math.random() * (emptyStrArr.length)); // should it be (emptyStrArr.length - 1) instead?
+    console.log(emptyStrArr[index]);
+    // for random i in emptyStrArr.length, set textContent, etc.. get item by id to set text content
+    // maybe return the index and id
+    return index;
+}
+
 // checks if player can make move as long as grid-item is empty
 function playerMove(item) {
-    alert(`Computer's Move`);
+    // alert(`Computer's Move`);
+    playerAlert.setAttribute('visibility', 'visible');
     if (item.textContent === 'null') {
         item.textContent = player.marker;
         player.move = false;
@@ -71,7 +96,7 @@ function playerMove(item) {
 
 // checks if computer can make move as long as grid-item is empty
 function computerMove(item){
-    alert(`You're Move`);
+    // alert(`You're Move`);
     if (item.textContent === 'null') {
         
         // figure out how to find empty entries in array, select random entry to place o
@@ -104,6 +129,8 @@ function isGridItem(e){
             if (trackMarks[index] === '') { 
                 trackMarks[index] = player.marker
             }
+
+        generateCompMove(); // testing here...
         }
         else if (computer.move === true) {
             computerMove(selection);
@@ -127,6 +154,8 @@ function isGridItem(e){
 }
 
 document.addEventListener('click', isGridItem);
+
+
 
 // make computer player auto instead of click
 // if win, make text larger and bolder, end game
