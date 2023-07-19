@@ -61,6 +61,7 @@ function isGameOver() {
 
 // checks if player can make move as long as grid-item is empty
 function playerMove(item) {
+    alert(`Computer's Move`);
     if (item.textContent === 'null') {
         item.textContent = player.marker;
         player.move = false;
@@ -70,6 +71,7 @@ function playerMove(item) {
 
 // checks if computer can make move as long as grid-item is empty
 function computerMove(item){
+    alert(`You're Move`);
     if (item.textContent === 'null') {
         
         // figure out how to find empty entries in array, select random entry to place o
@@ -81,7 +83,7 @@ function computerMove(item){
             }
         }
         console.log(emptyStrArr);
-        // for random i in emptyStrArr.length, set textContent, etc.
+        // for random i in emptyStrArr.length, set textContent, etc.. get item by id to set text content
 
         item.textContent = computer.marker;
         computer.move = false;
@@ -118,7 +120,10 @@ function isGridItem(e){
     else {
         console.log(`click is outside grid`);
     }
-    gameOver = isGameOver(); 
+    gameOver = isGameOver();
+    if (gameOver === true) {
+        alert(`Game over.`);
+    } 
 }
 
 document.addEventListener('click', isGridItem);
