@@ -121,22 +121,38 @@ function isGridItem(e){
     const selection = e.target;
     e.preventDefault();
 
-    if ((selection.className === 'grid-item')){
+    if (selection.className === 'grid-item'){
         const index = selection.id;
+        let playerAlert = document.querySelector('.player-alert');
+        let computerAlert = document.querySelector('.player-alert');
+
         if (player.move === true){
             playerMove(selection);
             // checks so it doesn't replace exisiting marker
             if (trackMarks[index] === '') { 
                 trackMarks[index] = player.marker
-            }
+
+                // show/hide alert after 3 seconds
+                playerAlert.style.display = 'inline-block';
+                setTimeout (() => {
+                    playerAlert.style.display = 'none';
+                    }, 3000);
+                }
 
         generateCompMove(); // testing here...
+
         }
         else if (computer.move === true) {
             computerMove(selection);
             // checks so it doesn't replace exisiting marker
             if (trackMarks[index] === '') {
                 trackMarks[index] = computer.marker;
+
+                // show/hide alert after 3 seconds
+                playerAlert.style.display = 'inline-block';
+                setTimeout (() => {
+                    playerAlert.style.display = 'none';
+                    }, 3000);
             }
         }
 

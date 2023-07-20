@@ -4,9 +4,19 @@ body, main, h2 {
     text-align: center;
 }
 
+.box {
+    width: 400px;
+    height: 400px;
+    background-color: yellow;
+    margin: 10px auto;
+}
+
 .player-move, .computer-move, .game-over {
     margin: 50px auto;
     width: 50%;
     padding: 50px;
     border: 1px solid #000;
+    position: absolute;
+    top: 0;
+    /* display: none; */
 }
