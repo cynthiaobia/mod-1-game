@@ -30,6 +30,12 @@ function isGameOver() {
         // HORIZONTAL WIN
         if (trackMarks[0] === trackMarks[1] && trackMarks[1] === trackMarks[2] && trackMarks[0] !== '') {
             gameOver = true;
+            if (trackMarks[0] === 'x'){
+                player.win = true;
+            }
+            else if (trackMarks[0] === 'o'){
+                computer.win = true;
+            }
         }
         else if (trackMarks[3] === trackMarks[4] && trackMarks[4] === trackMarks[5] && trackMarks[3] !== '') {
             gameOver = true;
@@ -56,7 +62,7 @@ function isGameOver() {
         }
     }
     console.log(`is game over? ${gameOver}`);
-    return gameOver;
+    return [gameOver, player.win, computer.win];
 }
 
 // figure out how to find empty entries in arr, select random entry to place o
@@ -157,7 +163,7 @@ function isGridItem(e){
                 alertPopUp(alert);
             }
         generateCompMove(); // testing here..., assign to newIndex
-            
+
         } 
         else if (computer.move === true) {
             computerMove(selection);
@@ -185,12 +191,26 @@ function isGridItem(e){
         alert.textContent = `Illegal move. Try again.`;
         alertPopUp(alert);
     }
-    gameOver = isGameOver();
+    
+    // Game Over State
+    let results = isGameOver();
+    gameOver = results[0];
+    player.win = results[1];
+    computer.win = results[2];
+
     if (gameOver === true) {
-        // show/hide alert after 3 seconds
-        alert.textContent = `Game Over.`;
-        alertPopUp(alert);
-        
+        if (player.win) {
+            alert.textContent = `Game Over. You win!`;
+            alertPopUp(alert);
+        }
+        else if (computer.win) {
+            alert.textContent = `Game Over. You lose!`;
+            alertPopUp(alert);
+        }
+        else {
+            alert.textContent = `Game Over. It's a tie!`;
+            alertPopUp(alert);
+        }  
     } 
 }
 
