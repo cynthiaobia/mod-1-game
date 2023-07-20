@@ -126,7 +126,11 @@ function generateCompMove(){
 function playerMove(item) {
     if (item.textContent === '') {
         item.textContent = player.marker;
-        item.style.color = 'green';
+        // light mode
+        // item.style.color = '#484b6a';
+
+        // dark mode
+        item.style.color = '#486581';
         player.move = false;
         computer.move = true;
     }
@@ -146,7 +150,11 @@ function computerMove(item){
         // for random i in emptyStrArr.length, set textContent, etc.. get item by id to set text content
 
         item.textContent = computer.marker;
-        item.style.color = 'red';
+        // light mode
+        // item.style.color = '#9394a5';
+        
+        // dark mode
+        item.style.color = '#bcccdc';
         computer.move = false;
         player.move = true;
     }
@@ -260,3 +268,4 @@ document.addEventListener('click', isGridItem);
 
 // make computer player auto instead of click
 // if win, make text larger and bolder, end game
+// another logic fix: even when board is filled and there is a player, it alerts there's a tire

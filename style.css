@@ -1,8 +1,21 @@
 body {
     margin: 0 auto;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
+    letter-spacing: .2em;
+    /* light mode
+    background-color: #fafafa;
+    */
+    background-color: #102a43;
+}
+
+h1 {
+    font-weight: 400;
+    /* light mode
+    color: #484b6a;
+    */
+    color: #486581;
 }
 
 .grid-container {
@@ -17,16 +30,20 @@ body {
 
 .grid-item {
     display: grid;
-    border: solid 1px;
+    border: 0;
+    /* light mode
+    background-color: #e4e5f1;
+    */
+    background-color: #f0f4f8;
     place-items: center;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 75px;
 }
 
 .alert {
     text-align: center;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 0;
     right: 0;
     margin: auto;
@@ -44,16 +61,41 @@ body {
 .reset-button {
     margin: 10px;
     padding: 10px;
-    font-size: large;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: medium;
     text-transform: uppercase;
+    letter-spacing: .1em;
     border: 0;
     border-radius: 10px;
+    opacity: .6;
 }
 
 .reset-button:hover {
-    opacity: .6;
+    opacity: 1;
     cursor: pointer;
 }
 
-/* light mode, dark mode, pink mode */
+/* light mode, dark mode, pink mode, responsive grid sizing */
 
+/*
+LIGHT MODE COLORS
+Background: #fafafa
+Grid item background color: #e4e5f1
+Text-color: 
+X-color, h1: #484b6a
+O-color: 9394a5
+Reset text-color: 
+Reset background-color: 
+*/
+
+/*
+DARK MODE COLORS
+Background: #102a43
+Grid item background color: #f0f4f8
+Text-color: #
+X-color, h1: #486581
+O-color: 9394a5
+Reset text-color: 
+Reset background-color: 
+*/
