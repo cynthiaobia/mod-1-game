@@ -116,6 +116,7 @@ function alertPopUp(alert){
         }, 3000);
 }
 
+
 // register clicks to check whether area clicked is within grid
 function isGridItem(e){
     const selection = e.target;
@@ -123,6 +124,7 @@ function isGridItem(e){
 
     const alert = document.querySelector('.alert');
 
+    // if ((selection.className === 'grid-item') && (gameOver === false)){ ...may switch with line 128
     if (selection.className === 'grid-item'){
         const index = selection.id;
 
