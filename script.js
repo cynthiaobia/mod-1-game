@@ -116,7 +116,7 @@ function generateCompMove(){
     }
 
     console.log(emptyStrArr);
-    index = Math.floor(Math.random() * (emptyStrArr.length)); // should it be (emptyStrArr.length - 1) instead?
+    index = Math.floor(Math.random() * (emptyStrArr.length - 1)); // should it be (emptyStrArr.length - 1) instead?
     console.log(emptyStrArr[index]);
     // for random i in emptyStrArr.length, set textContent, etc.. get item by id to set text content
     // maybe return the index and id
@@ -196,23 +196,39 @@ function resetBoard(){
     console.clear();
 }
 
-// change theme
-const lightMode = document.querySelector('.light-mode');
-const darkMode = document.querySelector('.dark-mode');
-const pinkMode = document.querySelector('.pink-mode');
-lightMode.addEventListener('click', changeTheme);
-//darkMode.addEventListener('click', changeTheme);
-//pinkMode.addEventListener('click', changeTheme);
+// CHANGE THEMES
+const lightMode = document.querySelector('.light-mode-button');
+const darkMode = document.querySelector('.dark-mode-button');
+const pinkMode = document.querySelector('.pink-mode-button');
+lightMode.addEventListener('click', changeThemeLight);
+darkMode.addEventListener('click', changeThemeDark);
+pinkMode.addEventListener('click', changeThemePink);
 
-function changeTheme(){
-    let bg = 'var(--bg-color)';
-    let gridBg = 'var(--grid-bg-color';
-    let h1 = 'var(--h1-color)';
-    document.querySelector('body').style.backgroundColor = bg;
-    for (item of (document.querySelectorAll('.grid-item')) ){
-        item.style.backgroundColor = gridBg;
-    }
-    document.querySelector('h1').style.color = h1;
+function changeThemeLight(){
+    const root = document.documentElement;
+    root.style.setProperty('--bg-color', '#fafafa');
+    root.style.setProperty('--grid-bg-color', '#e4e5f1');
+    root.style.setProperty('--h1-color', '#484b6a');
+    root.style.setProperty('--x-color', '#484b6a');
+    root.style.setProperty('--o-color', '#9394a5');
+}
+
+function changeThemeDark(){
+    const root = document.documentElement;
+    root.style.setProperty('--bg-color', '#102a43');
+    root.style.setProperty('--grid-bg-color', '#f0f4f8');
+    root.style.setProperty('--h1-color', '#486581');
+    root.style.setProperty('--x-color', '#486581');
+    root.style.setProperty('--o-color', '#bcccdc');
+}
+
+function changeThemePink(){
+    const root = document.documentElement;
+    root.style.setProperty('--bg-color', '#f6dddd');
+    root.style.setProperty('--grid-bg-color', '#f0f4f8');
+    root.style.setProperty('--h1-color', '#ec9daf');
+    root.style.setProperty('--x-color', '#ec9daf');
+    root.style.setProperty('--o-color', '#ffcfd7');
 }
 
 // register clicks to check whether area clicked is within grid

@@ -1,5 +1,5 @@
 /* CSS Custom Properties */
-.light-mode {
+:root, .light-mode {
     --bg-color: #fafafa;
     --grid-bg-color: #e4e5f1;
     --h1-color: #484b6a;
@@ -7,7 +7,7 @@
     --o-color: #9394a5;
 }
 
-:root, .dark-mode {
+.dark-mode {
     --bg-color: #102a43;
     --grid-bg-color: #f0f4f8;
     --h1-color: #486581;
@@ -86,7 +86,7 @@ h1 {
     /*font-size: large;*/
 }
 
-.reset-button, .light-mode, .dark-mode, .pink-mode {
+.reset-button, .light-mode-button, .dark-mode-button, .pink-mode-button {
     margin: 10px;
     padding: 10px;
     font-family: 'Roboto', sans-serif;
@@ -99,7 +99,7 @@ h1 {
     opacity: .6;
 }
 
-.reset-button:hover, .light-mode:hover, .dark-mode:hover, .pink-mode:hover{
+.reset-button:hover, .light-mode-button:hover, .dark-mode-button:hover, .pink-mode-button:hover{
     opacity: 1;
     cursor: pointer;
 }
