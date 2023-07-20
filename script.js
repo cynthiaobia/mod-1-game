@@ -1,4 +1,4 @@
-
+// INITIALIZING PLAYERS
 const player = {
     marker: 'x', 
     move: true,
@@ -11,17 +11,14 @@ const computer = {
     win: false
 };
 
-// track marks in object. replace id name with mark at appropriate index
-let trackMarks = []
+let trackMarks = [];
 for (let i = 0; i <= 8; i++){
     trackMarks.push('');
 }
 
 let gameOver = false;
-
-// checking for winning conditions
 function isGameOver() {
-    // condition where if there is a draw/tie
+    // condition for draw/tie
     if (trackMarks.includes('') === false ){
         gameOver = true;
     }
@@ -126,7 +123,6 @@ function generateCompMove(){
     return index;
 }
 
-// checks if player can make move as long as grid-item is empty
 function playerMove(item) {
     if (item.textContent === '') {
         item.textContent = player.marker;
@@ -136,11 +132,8 @@ function playerMove(item) {
     }
 }
 
-// checks if computer can make move as long as grid-item is empty
 function computerMove(item){
-    
     if (item.textContent === '') {
-        
         // figure out how to find empty entries in array, select random entry to place o
         let emptyStrArr = [];
         for (let i = 0; i < trackMarks.length; i++){
@@ -168,17 +161,14 @@ function alertPopUp(alert){
 }
 
 // reset board function
-const resetButton = document.querySelector('.reset-board');
+const resetButton = document.querySelector('.reset-button');
 resetButton.addEventListener('click', resetBoard);
-
 function resetBoard(){
     const gridItems = document.querySelectorAll('.grid-item');
-    
     for (let item of gridItems) {
         item.textContent = '';
         item.style.color = 'black';
     }
-
     gameOver = false;
     player.win = false;
     computer.win = false;
@@ -194,10 +184,10 @@ function resetBoard(){
 // register clicks to check whether area clicked is within grid
 function isGridItem(e){
     const selection = e.target;
-    e.preventDefault();
-
     const alert = document.querySelector('.alert');
     
+    e.preventDefault();
+
     let newIndex = 0; // testing here...
 
     // if ((selection.className === 'grid-item') && (gameOver === false) && (selection.className !== 'reset-board')){
@@ -208,13 +198,10 @@ function isGridItem(e){
             // checks so it doesn't replace exisiting marker
             if (trackMarks[index] === '') { 
                 trackMarks[index] = player.marker
-
-                // show/hide alert after 3 seconds
                 alert.textContent = `Computer's Turn`;
                 alertPopUp(alert);
             }
             else {
-                // show/hide alert after 3 seconds
                 alert.textContent = `Illegal move. Try again.`;
                 alertPopUp(alert);
             }
@@ -226,35 +213,24 @@ function isGridItem(e){
             // checks so it doesn't replace exisiting marker
             if (trackMarks[index] === '') {  // use new index instead
                 trackMarks[index] = computer.marker;
-
-                // show/hide alert after 3 seconds
                 alert.textContent = `Your Turn`;
                 alertPopUp(alert);
             }
             else {
-                // show/hide alert after 3 seconds
                 alert.textContent = `Illegal move. Try again.`;
                 alertPopUp(alert);
             }
         } 
-
         console.log(trackMarks);
         console.log(`player move: ${player.move}`);
     }
-
-    
-    // RESET Board
-    else if ((selection.className === 'reset-board')){
-        alert.textContent = `reset board`;
+    // reset board
+    else if ((selection.className === 'reset-button')){
+        alert.textContent = `Reset Board`;
         alertPopUp(alert);
-        // resetButton.addEventListener('click', resetBoard);
-
     }
-    
-
     // clicks outside grid, illegal move
     else {
-        // show/hide alert after 3 seconds
         alert.textContent = `Illegal move. Try again.`;
         alertPopUp(alert);
     }
@@ -264,7 +240,6 @@ function isGridItem(e){
     gameOver = results[0];
     player.win = results[1];
     computer.win = results[2];
-
     if (gameOver === true) {
         if (player.win) {
             alert.textContent = `Game Over. You win!`;
@@ -282,10 +257,6 @@ function isGridItem(e){
 }
 
 document.addEventListener('click', isGridItem);
-
-
-
-
 
 // make computer player auto instead of click
 // if win, make text larger and bolder, end game

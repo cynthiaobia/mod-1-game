@@ -1,6 +1,8 @@
 body {
     margin: 0 auto;
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
 }
 
 .grid-container {
@@ -17,10 +19,8 @@ body {
     display: grid;
     border: solid 1px;
     place-items: center;
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 75px;
-    text-transform: uppercase;
 }
 
 .alert {
@@ -37,6 +37,23 @@ body {
     opacity: .6;
     display: none;
     place-content: center;
+    border-radius: 25px;
+    /*font-size: large;*/
+}
+
+.reset-button {
+    margin: 10px;
+    padding: 10px;
+    font-size: large;
+    text-transform: uppercase;
+    border: 0;
+    border-radius: 10px;
+}
+
+.reset-button:hover {
+    opacity: .6;
+    cursor: pointer;
 }
 
 /* light mode, dark mode, pink mode */
+
