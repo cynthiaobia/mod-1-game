@@ -6,16 +6,20 @@ body {
     letter-spacing: .2em;
     /* light mode
     background-color: #fafafa;
-    */
+    dark mode
     background-color: #102a43;
+    */
+    background-color: #f6dddd;
 }
 
 h1 {
     font-weight: 400;
     /* light mode
     color: #484b6a;
-    */
+    dark mode
     color: #486581;
+    */
+    color: #ec9daf;
 }
 
 .grid-container {
@@ -58,7 +62,7 @@ h1 {
     /*font-size: large;*/
 }
 
-.reset-button {
+.reset-button, .light-mode, .dark-mode, .pink-mode {
     margin: 10px;
     padding: 10px;
     font-family: 'Roboto', sans-serif;
@@ -71,7 +75,7 @@ h1 {
     opacity: .6;
 }
 
-.reset-button:hover {
+.reset-button:hover .light-mode:hover, .dark-mode:hover, .pink-mode:hover{
     opacity: 1;
     cursor: pointer;
 }
@@ -95,7 +99,18 @@ Background: #102a43
 Grid item background color: #f0f4f8
 Text-color: #
 X-color, h1: #486581
-O-color: 9394a5
+O-color: bcccdc
+Reset text-color: 
+Reset background-color: 
+*/
+
+/*
+PINK MODE COLORS
+Background: #f6dddd
+Grid item background color: #f0f4f8
+Text-color: #
+X-color, h1: ##ec9daf
+O-color: #ffcfd7
 Reset text-color: 
 Reset background-color: 
 */

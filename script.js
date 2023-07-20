@@ -130,7 +130,10 @@ function playerMove(item) {
         // item.style.color = '#484b6a';
 
         // dark mode
-        item.style.color = '#486581';
+        // item.style.color = '#486581';
+
+        //pink mode
+        item.style.color = '#ec9daf';
         player.move = false;
         computer.move = true;
     }
@@ -154,7 +157,9 @@ function computerMove(item){
         // item.style.color = '#9394a5';
         
         // dark mode
-        item.style.color = '#bcccdc';
+        // item.style.color = '#bcccdc';
+        // pink mode
+        item.style.color = '#ffcfd7';
         computer.move = false;
         player.move = true;
     }
