@@ -124,6 +124,7 @@ function generateCompMove(){
 }
 
 function playerMove(item) {
+
     if (item.textContent === '') {
         item.textContent = player.marker;
         // light mode
@@ -133,7 +134,7 @@ function playerMove(item) {
         // item.style.color = '#486581';
 
         //pink mode
-        item.style.color = '#ec9daf';
+        item.style.color = 'var(--x-color)';
         player.move = false;
         computer.move = true;
     }
@@ -159,18 +160,18 @@ function computerMove(item){
         // dark mode
         // item.style.color = '#bcccdc';
         // pink mode
-        item.style.color = '#ffcfd7';
+        item.style.color = 'var(--o-color)';
         computer.move = false;
         player.move = true;
     }
 }
 
-// show/hide alert after 3 seconds
+// show/hide alert after 2 seconds
 function alertPopUp(alert){
     alert.style.display = 'inline-block';
     setTimeout (() => {
         alert.style.display = 'none';
-        }, 3000);
+        }, 2000);
 }
 
 // reset board function
@@ -191,7 +192,27 @@ function resetBoard(){
     for (let i = 0; i <= 8; i++){
         trackMarks.push('');
     }
-    console.log(trackMarks);
+    //console.log(trackMarks);
+    console.clear();
+}
+
+// change theme
+const lightMode = document.querySelector('.light-mode');
+const darkMode = document.querySelector('.dark-mode');
+const pinkMode = document.querySelector('.pink-mode');
+lightMode.addEventListener('click', changeTheme);
+//darkMode.addEventListener('click', changeTheme);
+//pinkMode.addEventListener('click', changeTheme);
+
+function changeTheme(){
+    let bg = 'var(--bg-color)';
+    let gridBg = 'var(--grid-bg-color';
+    let h1 = 'var(--h1-color)';
+    document.querySelector('body').style.backgroundColor = bg;
+    for (item of (document.querySelectorAll('.grid-item')) ){
+        item.style.backgroundColor = gridBg;
+    }
+    document.querySelector('h1').style.color = h1;
 }
 
 // register clicks to check whether area clicked is within grid
@@ -242,6 +263,7 @@ function isGridItem(e){
         alert.textContent = `Reset Board`;
         alertPopUp(alert);
     }
+
     // clicks outside grid, illegal move
     else {
         alert.textContent = `Illegal move. Try again.`;
