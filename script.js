@@ -7,7 +7,7 @@ const player = {
 
 const computer = {
     marker: 'o', 
-    move: true,
+    move: false,
     win: false
 };
 
@@ -18,7 +18,7 @@ for (let i = 0; i <= 8; i++){
 }
 
 let gameOver = false;
-let winner = '';
+
 // checking for winning conditions
 function isGameOver() {
     // condition where if there is a draw/tie
@@ -39,26 +39,68 @@ function isGameOver() {
         }
         else if (trackMarks[3] === trackMarks[4] && trackMarks[4] === trackMarks[5] && trackMarks[3] !== '') {
             gameOver = true;
+            if (trackMarks[3] === 'x'){
+                player.win = true;
+            }
+            else if (trackMarks[3] === 'o'){
+                computer.win = true;
+            }
         }
         else if (trackMarks[6] === trackMarks[7] && trackMarks[7] === trackMarks[8] && trackMarks[6] !== '') {
             gameOver = true;
+            if (trackMarks[6] === 'x'){
+                player.win = true;
+            }
+            else if (trackMarks[6] === 'o'){
+                computer.win = true;
+            }
         }
         // VERTICAL WIN
         else if (trackMarks[0] === trackMarks[3] && trackMarks[3] === trackMarks[6] && trackMarks[0] !== '') {
             gameOver = true;
+            if (trackMarks[0] === 'x'){
+                player.win = true;
+            }
+            else if (trackMarks[0] === 'o'){
+                computer.win = true;
+            }
         }
         else if (trackMarks[1] === trackMarks[4] && trackMarks[4] === trackMarks[7] && trackMarks[1] !== '') {
             gameOver = true;
+            if (trackMarks[1] === 'x'){
+                player.win = true;
+            }
+            else if (trackMarks[1] === 'o'){
+                computer.win = true;
+            }
         }
         else if (trackMarks[2] === trackMarks[5] && trackMarks[5] === trackMarks[8] && trackMarks[2] !== '') {
             gameOver = true;
+            if (trackMarks[2] === 'x'){
+                player.win = true;
+            }
+            else if (trackMarks[2] === 'o'){
+                computer.win = true;
+            }
         }
         // DIAGONAL WIN
         else if (trackMarks[0] === trackMarks[4] && trackMarks[4] === trackMarks[8] && trackMarks[0] !== '') {
             gameOver = true;
+            if (trackMarks[0] === 'x'){
+                player.win = true;
+            }
+            else if (trackMarks[0] === 'o'){
+                computer.win = true;
+            }
         }
         else if (trackMarks[2] === trackMarks[4] && trackMarks[4] === trackMarks[6] && trackMarks[2] !== '') {
             gameOver = true;
+            if (trackMarks[2] === 'x'){
+                player.win = true;
+            }
+            else if (trackMarks[2] === 'o'){
+                computer.win = true;
+            }
         }
     }
     console.log(`is game over? ${gameOver}`);
@@ -126,9 +168,22 @@ function alertPopUp(alert){
 }
 
 // reset board function
+const resetButton = document.querySelector('.reset-board');
+resetButton.addEventListener('click', resetBoard);
+
 function resetBoard(){
-    document.querySelectorAll('.grid-item').textContent = '';
+    const gridItems = document.querySelectorAll('.grid-item');
+    
+    for (let item of gridItems) {
+        item.textContent = '';
+        item.style.color = 'black';
+    }
+
     gameOver = false;
+    player.win = false;
+    computer.win = false;
+    player.move = true;
+    computer.move = false;
     trackMarks = []
     for (let i = 0; i <= 8; i++){
         trackMarks.push('');
@@ -145,6 +200,7 @@ function isGridItem(e){
     
     let newIndex = 0; // testing here...
 
+    // if ((selection.className === 'grid-item') && (gameOver === false) && (selection.className !== 'reset-board')){
     if ((selection.className === 'grid-item') && (gameOver === false)){ 
         const index = selection.id;
         if (player.move === true){
@@ -185,6 +241,17 @@ function isGridItem(e){
         console.log(trackMarks);
         console.log(`player move: ${player.move}`);
     }
+
+    
+    // RESET Board
+    else if ((selection.className === 'reset-board')){
+        alert.textContent = `reset board`;
+        alertPopUp(alert);
+        // resetButton.addEventListener('click', resetBoard);
+
+    }
+    
+
     // clicks outside grid, illegal move
     else {
         // show/hide alert after 3 seconds
@@ -219,7 +286,6 @@ document.addEventListener('click', isGridItem);
 
 
 
+
 // make computer player auto instead of click
 // if win, make text larger and bolder, end game
-// make function to get winner. alert message for winner, loser, draw
-// reset board to play again
