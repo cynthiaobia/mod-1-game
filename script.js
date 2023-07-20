@@ -18,7 +18,7 @@ for (let i = 0; i <= 8; i++){
 }
 
 let gameOver = false;
-
+let winner = '';
 // checking for winning conditions
 function isGameOver() {
     // condition where if there is a draw/tie
@@ -116,7 +116,6 @@ function alertPopUp(alert){
         }, 3000);
 }
 
-
 // register clicks to check whether area clicked is within grid
 function isGridItem(e){
     const selection = e.target;
@@ -124,10 +123,8 @@ function isGridItem(e){
 
     const alert = document.querySelector('.alert');
 
-    // if ((selection.className === 'grid-item') && (gameOver === false)){ ...may switch with line 128
-    if (selection.className === 'grid-item'){
+    if ((selection.className === 'grid-item') && (gameOver === false)){ 
         const index = selection.id;
-
         if (player.move === true){
             playerMove(selection);
             // checks so it doesn't replace exisiting marker
@@ -136,6 +133,11 @@ function isGridItem(e){
 
                 // show/hide alert after 3 seconds
                 alert.textContent = `Computer's Turn`;
+                alertPopUp(alert);
+            }
+            else {
+                // show/hide alert after 3 seconds
+                alert.textContent = `Illegal move. Try again.`;
                 alertPopUp(alert);
             }
         generateCompMove(); // testing here...
@@ -149,6 +151,11 @@ function isGridItem(e){
 
                 // show/hide alert after 3 seconds
                 alert.textContent = `Your Turn`;
+                alertPopUp(alert);
+            }
+            else {
+                // show/hide alert after 3 seconds
+                alert.textContent = `Illegal move. Try again.`;
                 alertPopUp(alert);
             }
         }
@@ -172,10 +179,7 @@ function isGridItem(e){
 
 document.addEventListener('click', isGridItem);
 
-
-
 // make computer player auto instead of click
 // if win, make text larger and bolder, end game
-// alert message for winner
-// alert message for loser
+// make function to get winner. alert message for winner, loser, draw
 // reset board to play again

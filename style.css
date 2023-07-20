@@ -5,9 +5,12 @@ body {
 
 .grid-container {
     display: grid;
+    margin: 0 auto;
     grid-gap: 10px;
     grid-template-columns: repeat(3, 150px);
     grid-template-rows: repeat(3, 150px);
+    /* center entire grid */
+    place-content: center;
 }
 
 .grid-item {
@@ -16,13 +19,15 @@ body {
 }
 
 .alert {
-    margin: 50px auto;
-    width: 50%;
+    margin: 50px;
+    width: 25%;
     padding: 50px;
     border: 1px solid #000;
     position: absolute;
     top: 0;
+    left: 0;
     display: none;
+    place-content: center;
 }
 
 /* light mode, dark mode, pink mode */
