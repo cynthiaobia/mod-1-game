@@ -24,10 +24,6 @@ body {
 }
 
 .alert {
-    /*position: absolute;
-    top: 0;
-    left: 0;
-    margin: 50px;*/
     text-align: center;
     position: absolute;
     top: 50%;
@@ -37,7 +33,6 @@ body {
     transform: translateY(-50%);
     width: 25%;
     padding: 50px;
-    /*border: 1px solid #000;*/
     background-color: lightgray;
     opacity: .6;
     display: none;

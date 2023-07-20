@@ -90,6 +90,7 @@ function playerMove(item) {
 
 // checks if computer can make move as long as grid-item is empty
 function computerMove(item){
+    
     if (item.textContent === '') {
         
         // figure out how to find empty entries in array, select random entry to place o
@@ -128,12 +129,15 @@ function resetBoard(){
     }
     console.log(trackMarks);
 }
+
 // register clicks to check whether area clicked is within grid
 function isGridItem(e){
     const selection = e.target;
     e.preventDefault();
 
     const alert = document.querySelector('.alert');
+    
+    let newIndex = 0; // testing here...
 
     if ((selection.className === 'grid-item') && (gameOver === false)){ 
         const index = selection.id;
@@ -152,13 +156,13 @@ function isGridItem(e){
                 alert.textContent = `Illegal move. Try again.`;
                 alertPopUp(alert);
             }
-        generateCompMove(); // testing here...
-
-        }
+        generateCompMove(); // testing here..., assign to newIndex
+            
+        } 
         else if (computer.move === true) {
             computerMove(selection);
             // checks so it doesn't replace exisiting marker
-            if (trackMarks[index] === '') {
+            if (trackMarks[index] === '') {  // use new index instead
                 trackMarks[index] = computer.marker;
 
                 // show/hide alert after 3 seconds
@@ -170,7 +174,7 @@ function isGridItem(e){
                 alert.textContent = `Illegal move. Try again.`;
                 alertPopUp(alert);
             }
-        }
+        } 
 
         console.log(trackMarks);
         console.log(`player move: ${player.move}`);
