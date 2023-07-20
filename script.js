@@ -80,8 +80,9 @@ function generateCompMove(){
 
 // checks if player can make move as long as grid-item is empty
 function playerMove(item) {
-    if (item.textContent === 'null') {
+    if (item.textContent === '') {
         item.textContent = player.marker;
+        item.style.color = 'green';
         player.move = false;
         computer.move = true;
     }
@@ -89,7 +90,7 @@ function playerMove(item) {
 
 // checks if computer can make move as long as grid-item is empty
 function computerMove(item){
-    if (item.textContent === 'null') {
+    if (item.textContent === '') {
         
         // figure out how to find empty entries in array, select random entry to place o
         let emptyStrArr = [];
@@ -103,6 +104,7 @@ function computerMove(item){
         // for random i in emptyStrArr.length, set textContent, etc.. get item by id to set text content
 
         item.textContent = computer.marker;
+        item.style.color = 'red';
         computer.move = false;
         player.move = true;
     }

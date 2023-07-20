@@ -14,18 +14,23 @@ body {
 }
 
 .grid-item {
-    display: inline-block;
+    display: grid;
     border: solid 1px;
+    place-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 75px;
+    text-transform: uppercase;
 }
 
 .alert {
+    position: absolute;
+    top: 0;
+    left: 0;
     margin: 50px;
     width: 25%;
     padding: 50px;
     border: 1px solid #000;
-    position: absolute;
-    top: 0;
-    left: 0;
     display: none;
     place-content: center;
 }
