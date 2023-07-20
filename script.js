@@ -19,11 +19,6 @@ for (let i = 0; i <= 8; i++){
 
 let gameOver = false;
 
-// working on alerts
-const playerAlert = document.querySelector('.player-alert');
-console.log(playerAlert);
-
-
 // checking for winning conditions
 function isGameOver() {
     // condition where if there is a draw/tie
@@ -85,8 +80,6 @@ function generateCompMove(){
 
 // checks if player can make move as long as grid-item is empty
 function playerMove(item) {
-    // alert(`Computer's Move`);
-    playerAlert.setAttribute('visibility', 'visible');
     if (item.textContent === 'null') {
         item.textContent = player.marker;
         player.move = false;
@@ -96,7 +89,6 @@ function playerMove(item) {
 
 // checks if computer can make move as long as grid-item is empty
 function computerMove(item){
-    // alert(`You're Move`);
     if (item.textContent === 'null') {
         
         // figure out how to find empty entries in array, select random entry to place o
@@ -116,15 +108,23 @@ function computerMove(item){
     }
 }
 
+// show/hide alert after 3 seconds
+function alertPopUp(alert){
+    alert.style.display = 'inline-block';
+    setTimeout (() => {
+        alert.style.display = 'none';
+        }, 3000);
+}
+
 // register clicks to check whether area clicked is within grid
 function isGridItem(e){
     const selection = e.target;
     e.preventDefault();
 
+    const alert = document.querySelector('.alert');
+
     if (selection.className === 'grid-item'){
         const index = selection.id;
-        let playerAlert = document.querySelector('.player-alert');
-        let computerAlert = document.querySelector('.player-alert');
 
         if (player.move === true){
             playerMove(selection);
@@ -133,12 +133,9 @@ function isGridItem(e){
                 trackMarks[index] = player.marker
 
                 // show/hide alert after 3 seconds
-                playerAlert.style.display = 'inline-block';
-                setTimeout (() => {
-                    playerAlert.style.display = 'none';
-                    }, 3000);
-                }
-
+                alert.textContent = `Computer's Turn`;
+                alertPopUp(alert);
+            }
         generateCompMove(); // testing here...
 
         }
@@ -149,10 +146,8 @@ function isGridItem(e){
                 trackMarks[index] = computer.marker;
 
                 // show/hide alert after 3 seconds
-                playerAlert.style.display = 'inline-block';
-                setTimeout (() => {
-                    playerAlert.style.display = 'none';
-                    }, 3000);
+                alert.textContent = `Your Turn`;
+                alertPopUp(alert);
             }
         }
 
@@ -161,11 +156,15 @@ function isGridItem(e){
     }
     // clicks outside grid, illegal move
     else {
-        console.log(`click is outside grid`);
+        // show/hide alert after 3 seconds
+        alert.textContent = `Illegal move. Try again.`;
+        alertPopUp(alert);
     }
     gameOver = isGameOver();
     if (gameOver === true) {
-        alert(`Game over.`);
+        // show/hide alert after 3 seconds
+        alert.textContent = `Game Over.`;
+        alertPopUp(alert);
     } 
 }
 
@@ -175,8 +174,6 @@ document.addEventListener('click', isGridItem);
 
 // make computer player auto instead of click
 // if win, make text larger and bolder, end game
-// alert message for illegal move
 // alert message for winner
 // alert message for loser
 // reset board to play again
-
