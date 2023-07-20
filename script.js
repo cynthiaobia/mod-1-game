@@ -12,7 +12,7 @@ const computer = {
 };
 
 // track marks in object. replace id name with mark at appropriate index
-const trackMarks = []
+let trackMarks = []
 for (let i = 0; i <= 8; i++){
     trackMarks.push('');
 }
@@ -118,6 +118,16 @@ function alertPopUp(alert){
         }, 3000);
 }
 
+// reset board function
+function resetBoard(){
+    document.querySelectorAll('.grid-item').textContent = '';
+    gameOver = false;
+    trackMarks = []
+    for (let i = 0; i <= 8; i++){
+        trackMarks.push('');
+    }
+    console.log(trackMarks);
+}
 // register clicks to check whether area clicked is within grid
 function isGridItem(e){
     const selection = e.target;
@@ -176,10 +186,14 @@ function isGridItem(e){
         // show/hide alert after 3 seconds
         alert.textContent = `Game Over.`;
         alertPopUp(alert);
+        
     } 
 }
 
 document.addEventListener('click', isGridItem);
+
+
+
 
 // make computer player auto instead of click
 // if win, make text larger and bolder, end game
