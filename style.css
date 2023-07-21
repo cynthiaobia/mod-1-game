@@ -91,3 +91,7 @@ button:hover {
     opacity: 1;
     cursor: pointer;
 }
+
+.index-visual {
+    display: none;
+}

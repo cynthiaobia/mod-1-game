@@ -118,7 +118,7 @@ function generateCompMove(){
     }
 
     console.log(emptyStrArr);
-    index = Math.floor(Math.random() * (emptyStrArr.length - 1)); // should it be (emptyStrArr.length - 1) instead?
+    index = Math.floor(Math.random() * (emptyStrArr.length)); 
     console.log(emptyStrArr[index]);
     // for random i in emptyStrArr.length, set textContent, etc.. get item by id to set text content
     // maybe return the index and id
@@ -126,7 +126,6 @@ function generateCompMove(){
 }
 
 function playerMove(item) {
-
     if (item.textContent === '') {
         item.textContent = player.marker;
         item.style.color = 'var(--x-color)';
@@ -181,8 +180,6 @@ function resetBoard(){
     }
     console.clear();
 }
-
-
 
 // register clicks to check whether area clicked is within grid
 function isGridItem(e){
@@ -242,7 +239,7 @@ function isGridItem(e){
         alertPopUp(alert);
     }
     else if ((selection.className === 'pink-mode-btn')){
-        alert.textContent = `Changing to pink mode...`;
+        alert.textContent = `Changing to Barbie mode...`;
         alertPopUp(alert);
     }
 
