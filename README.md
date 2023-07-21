@@ -21,7 +21,7 @@ My game comes packed with features that will keep you on your toes and fully imm
 
 ## Installation and Live Version
 You don't need to worry about complicated setups. Just head over to the link below and you'll instantly have access to the live version of the Tic Tac Toe game:
-https://cynthiaobia.github.io/mod-1/game
+https://cynthiaobia.github.io/mod-1-game
 
 ## How to Play
 Playing the Tic Tac Toe game is a breeze! Simply visit the link above and you're all set to start your exciting matches.
