@@ -16,97 +16,94 @@ for (let i = 0; i <= 8; i++){
     trackMarks.push('');
 }
 
+// DETERMING WIN/LOSE/GAME OVER STATES
 let gameOver = false;
 function isGameOver() {
-    // condition for draw/tie
-    // if (trackMarks.includes('') === false ){
-    //     gameOver = true;
-    // }
-    //else {
-        // HORIZONTAL WIN
-        if (trackMarks[0] === trackMarks[1] && trackMarks[1] === trackMarks[2] && trackMarks[0] !== '') {
-            gameOver = true;
-            if (trackMarks[0] === 'x'){
-                player.win = true;
-            }
-            else if (trackMarks[0] === 'o'){
-                computer.win = true;
-            }
+    // HORIZONTAL WIN
+    if (trackMarks[0] === trackMarks[1] && trackMarks[1] === trackMarks[2] && trackMarks[0] !== '') {
+        gameOver = true;
+        if (trackMarks[0] === 'x'){
+            player.win = true;
         }
-        else if (trackMarks[3] === trackMarks[4] && trackMarks[4] === trackMarks[5] && trackMarks[3] !== '') {
-            gameOver = true;
-            if (trackMarks[3] === 'x'){
-                player.win = true;
-            }
-            else if (trackMarks[3] === 'o'){
-                computer.win = true;
-            }
+        else if (trackMarks[0] === 'o'){
+            computer.win = true;
         }
-        else if (trackMarks[6] === trackMarks[7] && trackMarks[7] === trackMarks[8] && trackMarks[6] !== '') {
-            gameOver = true;
-            if (trackMarks[6] === 'x'){
-                player.win = true;
-            }
-            else if (trackMarks[6] === 'o'){
-                computer.win = true;
-            }
+    }
+    else if (trackMarks[3] === trackMarks[4] && trackMarks[4] === trackMarks[5] && trackMarks[3] !== '') {
+        gameOver = true;
+        if (trackMarks[3] === 'x'){
+            player.win = true;
         }
-        // VERTICAL WIN
-        else if (trackMarks[0] === trackMarks[3] && trackMarks[3] === trackMarks[6] && trackMarks[0] !== '') {
-            gameOver = true;
-            if (trackMarks[0] === 'x'){
-                player.win = true;
-            }
-            else if (trackMarks[0] === 'o'){
-                computer.win = true;
-            }
+        else if (trackMarks[3] === 'o'){
+            computer.win = true;
         }
-        else if (trackMarks[1] === trackMarks[4] && trackMarks[4] === trackMarks[7] && trackMarks[1] !== '') {
-            gameOver = true;
-            if (trackMarks[1] === 'x'){
-                player.win = true;
-            }
-            else if (trackMarks[1] === 'o'){
-                computer.win = true;
-            }
+    }
+    else if (trackMarks[6] === trackMarks[7] && trackMarks[7] === trackMarks[8] && trackMarks[6] !== '') {
+        gameOver = true;
+        if (trackMarks[6] === 'x'){
+            player.win = true;
         }
-        else if (trackMarks[2] === trackMarks[5] && trackMarks[5] === trackMarks[8] && trackMarks[2] !== '') {
-            gameOver = true;
-            if (trackMarks[2] === 'x'){
-                player.win = true;
-            }
-            else if (trackMarks[2] === 'o'){
-                computer.win = true;
-            }
+        else if (trackMarks[6] === 'o'){
+            computer.win = true;
         }
-        // DIAGONAL WIN
-        else if (trackMarks[0] === trackMarks[4] && trackMarks[4] === trackMarks[8] && trackMarks[0] !== '') {
-            gameOver = true;
-            if (trackMarks[0] === 'x'){
-                player.win = true;
-            }
-            else if (trackMarks[0] === 'o'){
-                computer.win = true;
-            }
+    }
+    // VERTICAL WIN
+    else if (trackMarks[0] === trackMarks[3] && trackMarks[3] === trackMarks[6] && trackMarks[0] !== '') {
+        gameOver = true;
+        if (trackMarks[0] === 'x'){
+            player.win = true;
         }
-        else if (trackMarks[2] === trackMarks[4] && trackMarks[4] === trackMarks[6] && trackMarks[2] !== '') {
-            gameOver = true;
-            if (trackMarks[2] === 'x'){
-                player.win = true;
-            }
-            else if (trackMarks[2] === 'o'){
-                computer.win = true;
-            }
+        else if (trackMarks[0] === 'o'){
+            computer.win = true;
         }
-    // }
+    }
+    else if (trackMarks[1] === trackMarks[4] && trackMarks[4] === trackMarks[7] && trackMarks[1] !== '') {
+        gameOver = true;
+        if (trackMarks[1] === 'x'){
+            player.win = true;
+        }
+        else if (trackMarks[1] === 'o'){
+            computer.win = true;
+        }
+    }
+    else if (trackMarks[2] === trackMarks[5] && trackMarks[5] === trackMarks[8] && trackMarks[2] !== '') {
+        gameOver = true;
+        if (trackMarks[2] === 'x'){
+            player.win = true;
+        }
+        else if (trackMarks[2] === 'o'){
+            computer.win = true;
+        }
+    }
+    // DIAGONAL WIN
+    else if (trackMarks[0] === trackMarks[4] && trackMarks[4] === trackMarks[8] && trackMarks[0] !== '') {
+        gameOver = true;
+        if (trackMarks[0] === 'x'){
+            player.win = true;
+        }
+        else if (trackMarks[0] === 'o'){
+            computer.win = true;
+        }
+    }
+    else if (trackMarks[2] === trackMarks[4] && trackMarks[4] === trackMarks[6] && trackMarks[2] !== '') {
+        gameOver = true;
+        if (trackMarks[2] === 'x'){
+            player.win = true;
+        }
+        else if (trackMarks[2] === 'o'){
+            computer.win = true;
+        }
+    }
+    // DRAW/TIE
     if (trackMarks.includes('') === false ){
         gameOver = true;
     }
-    console.log(`is game over? ${gameOver}`);
+    // console.log(`is game over? ${gameOver}`);
     return [gameOver, player.win, computer.win];
 }
 
 // figure out how to find empty entries in arr, select random entry to place o
+// not used in this deployment
 function generateCompMove(){
     let emptyStrArr = [];
     let index = 0;
@@ -116,7 +113,6 @@ function generateCompMove(){
             emptyStrArr.push(i);
         }
     }
-
     console.log(emptyStrArr);
     index = Math.floor(Math.random() * (emptyStrArr.length)); 
     console.log(emptyStrArr[index]);
@@ -146,7 +142,6 @@ function computerMove(item){
         }
         console.log(emptyStrArr);
         // for random i in emptyStrArr.length, set textContent, etc.. get item by id to set text content
-
         item.textContent = computer.marker;
         item.style.color = 'var(--o-color)';
         computer.move = false;
@@ -154,6 +149,7 @@ function computerMove(item){
     }
 }
 
+// GENERATE POP UPS
 function alertPopUp(alert){
     alert.style.display = 'inline-block';
     setTimeout (() => {
@@ -161,7 +157,7 @@ function alertPopUp(alert){
         }, 1000);
 }
 
-// reset board function
+// RESET BOARD
 const resetButton = document.querySelector('.reset-btn');
 resetButton.addEventListener('click', resetBoard);
 function resetBoard(){
@@ -181,7 +177,7 @@ function resetBoard(){
     console.clear();
 }
 
-// register clicks to check whether area clicked is within grid
+// CHECK IF CLICKS ARE WITHIN GRID
 function isGridItem(e){
     const selection = e.target;
     const alert = document.querySelector('.alert');
@@ -273,8 +269,6 @@ function isGridItem(e){
 
 document.addEventListener('click', isGridItem);
 
-// README
-// maker responsive
+// make responsive
 // refactor code
 // make computer player auto instead of click
-// another logic fix: even when board is filled and there is a winner, it alerts there's a tie
