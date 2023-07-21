@@ -102,8 +102,8 @@ function isGameOver() {
     return [gameOver, player.win, computer.win];
 }
 
+// ==============================================
 // figure out how to find empty entries in arr, select random entry to place o
-// not used in this deployment
 function generateCompMove(){
     let emptyStrArr = [];
     let index = 0;
@@ -120,6 +120,7 @@ function generateCompMove(){
     // maybe return the index and id
     return index;
 }
+// ================================================
 
 function playerMove(item) {
     if (item.textContent === '') {
@@ -132,6 +133,8 @@ function playerMove(item) {
 
 function computerMove(item){
     if (item.textContent === '') {
+
+        // ================================================
         // figure out how to find empty entries in array, select random entry to place o
         let emptyStrArr = [];
         for (let i = 0; i < trackMarks.length; i++){
@@ -142,6 +145,8 @@ function computerMove(item){
         }
         console.log(emptyStrArr);
         // for random i in emptyStrArr.length, set textContent, etc.. get item by id to set text content
+        // ================================================
+
         item.textContent = computer.marker;
         item.style.color = 'var(--o-color)';
         computer.move = false;
@@ -200,6 +205,7 @@ function isGridItem(e){
                 alert.textContent = `Illegal move. Try again.`;
                 alertPopUp(alert);
             }
+
         generateCompMove(); // testing here..., assign to newIndex
 
         } 
@@ -224,7 +230,6 @@ function isGridItem(e){
         alert.textContent = `Resetting Board`;
         alertPopUp(alert);
     }
-
     // alerts when changing theme
     else if ((selection.className === 'light-mode-btn')){
         alert.textContent = `Changing to light mode...`;
@@ -238,7 +243,6 @@ function isGridItem(e){
         alert.textContent = `Changing to Barbie mode...`;
         alertPopUp(alert);
     }
-
     // clicks outside grid, illegal move
     else {
         alert.textContent = `Illegal move. Try again.`;
@@ -250,7 +254,7 @@ function isGridItem(e){
     gameOver = results[0];
     player.win = results[1];
     computer.win = results[2];
-    console.log(results);
+    // console.log(results);
     if (gameOver === true) {
         if (player.win) {
             alert.textContent = `Game Over. Player X wins!`;
