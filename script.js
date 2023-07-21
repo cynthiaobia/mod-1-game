@@ -22,7 +22,6 @@ function isGameOver() {
     if (trackMarks.includes('') === false ){
         gameOver = true;
     }
-
     else {
         // HORIZONTAL WIN
         if (trackMarks[0] === trackMarks[1] && trackMarks[1] === trackMarks[2] && trackMarks[0] !== '') {
@@ -127,13 +126,6 @@ function playerMove(item) {
 
     if (item.textContent === '') {
         item.textContent = player.marker;
-        // light mode
-        // item.style.color = '#484b6a';
-
-        // dark mode
-        // item.style.color = '#486581';
-
-        //pink mode
         item.style.color = 'var(--x-color)';
         player.move = false;
         computer.move = true;
@@ -154,34 +146,26 @@ function computerMove(item){
         // for random i in emptyStrArr.length, set textContent, etc.. get item by id to set text content
 
         item.textContent = computer.marker;
-        // light mode
-        // item.style.color = '#9394a5';
-        
-        // dark mode
-        // item.style.color = '#bcccdc';
-        // pink mode
         item.style.color = 'var(--o-color)';
         computer.move = false;
         player.move = true;
     }
 }
 
-// show/hide alert after 2 seconds
 function alertPopUp(alert){
     alert.style.display = 'inline-block';
     setTimeout (() => {
         alert.style.display = 'none';
-        }, 2000);
+        }, 1000);
 }
 
 // reset board function
-const resetButton = document.querySelector('.reset-button');
+const resetButton = document.querySelector('.reset-btn');
 resetButton.addEventListener('click', resetBoard);
 function resetBoard(){
     const gridItems = document.querySelectorAll('.grid-item');
     for (let item of gridItems) {
         item.textContent = '';
-        item.style.color = 'black';
     }
     gameOver = false;
     player.win = false;
@@ -192,14 +176,13 @@ function resetBoard(){
     for (let i = 0; i <= 8; i++){
         trackMarks.push('');
     }
-    //console.log(trackMarks);
     console.clear();
 }
 
 // CHANGE THEMES
-const lightMode = document.querySelector('.light-mode-button');
-const darkMode = document.querySelector('.dark-mode-button');
-const pinkMode = document.querySelector('.pink-mode-button');
+const lightMode = document.querySelector('.light-mode-btn');
+const darkMode = document.querySelector('.dark-mode-btn');
+const pinkMode = document.querySelector('.pink-mode-btn');
 lightMode.addEventListener('click', changeThemeLight);
 darkMode.addEventListener('click', changeThemeDark);
 pinkMode.addEventListener('click', changeThemePink);
@@ -225,7 +208,7 @@ function changeThemeDark(){
 function changeThemePink(){
     const root = document.documentElement;
     root.style.setProperty('--bg-color', '#f6dddd');
-    root.style.setProperty('--grid-bg-color', '#f0f4f8');
+    root.style.setProperty('--grid-bg-color', '#f4f4f1');
     root.style.setProperty('--h1-color', '#ec9daf');
     root.style.setProperty('--x-color', '#ec9daf');
     root.style.setProperty('--o-color', '#ffcfd7');
@@ -240,7 +223,6 @@ function isGridItem(e){
 
     let newIndex = 0; // testing here...
 
-    // if ((selection.className === 'grid-item') && (gameOver === false) && (selection.className !== 'reset-board')){
     if ((selection.className === 'grid-item') && (gameOver === false)){ 
         const index = selection.id;
         if (player.move === true){
@@ -248,7 +230,7 @@ function isGridItem(e){
             // checks so it doesn't replace exisiting marker
             if (trackMarks[index] === '') { 
                 trackMarks[index] = player.marker
-                alert.textContent = `Computer's Turn`;
+                alert.textContent = `Player O's Turn`;
                 alertPopUp(alert);
             }
             else {
@@ -261,9 +243,9 @@ function isGridItem(e){
         else if (computer.move === true) {
             computerMove(selection);
             // checks so it doesn't replace exisiting marker
-            if (trackMarks[index] === '') {  // use new index instead
+            if (trackMarks[index] === '') {  
                 trackMarks[index] = computer.marker;
-                alert.textContent = `Your Turn`;
+                alert.textContent = `Player X's Turn`;
                 alertPopUp(alert);
             }
             else {
@@ -275,8 +257,22 @@ function isGridItem(e){
         console.log(`player move: ${player.move}`);
     }
     // reset board
-    else if ((selection.className === 'reset-button')){
-        alert.textContent = `Reset Board`;
+    else if ((selection.className === 'reset-btn')){
+        alert.textContent = `Resetting Board`;
+        alertPopUp(alert);
+    }
+
+    // alerts when changing theme
+    else if ((selection.className === 'light-mode-btn')){
+        alert.textContent = `Changing to light mode...`;
+        alertPopUp(alert);
+    }
+    else if ((selection.className === 'dark-mode-btn')){
+        alert.textContent = `Changing to dark mode...`;
+        alertPopUp(alert);
+    }
+    else if ((selection.className === 'pink-mode-btn')){
+        alert.textContent = `Changing to pink mode...`;
         alertPopUp(alert);
     }
 
@@ -293,11 +289,11 @@ function isGridItem(e){
     computer.win = results[2];
     if (gameOver === true) {
         if (player.win) {
-            alert.textContent = `Game Over. You win!`;
+            alert.textContent = `Game Over. Player X wins!`;
             alertPopUp(alert);
         }
         else if (computer.win) {
-            alert.textContent = `Game Over. You lose!`;
+            alert.textContent = `Game Over. Player O wins!`;
             alertPopUp(alert);
         }
         else {
@@ -309,6 +305,8 @@ function isGridItem(e){
 
 document.addEventListener('click', isGridItem);
 
+// README
+// maker responsive
+// refactor code
 // make computer player auto instead of click
-// if win, make text larger and bolder, end game
-// another logic fix: even when board is filled and there is a player, it alerts there's a tire
+// another logic fix: even when board is filled and there is a winner, it alerts there's a tie
