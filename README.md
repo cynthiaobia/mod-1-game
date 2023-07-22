@@ -37,7 +37,7 @@ If you're up for the challenge and want to contribute to the development of this
 ## Credits
 This game wouldn't be the same without the support of the following resources:
 - Creating a grid with CSS: https://www.kirupa.com/css/creating_3x3_grid.htm
-- Showing/hiding alerts: https://linuxhint.com/hide-an-element-after-a-few-seconds-using-javascript/
+- Hiding elements (used to show/hide alerts): https://linuxhint.com/hide-an-element-after-a-few-seconds-using-javascript/
 - Light mode color palette: https://www.color-hex.com/color-palette/106748
 - Dark mode color palette: https://www.color-hex.com/color-palette/112837
 - Barbie mode color palette: https://www.color-hex.com/color-palette/5615
