@@ -6,7 +6,8 @@ Welcome to the classic Tic Tac Toe game, now available in a thrilling 2-player f
 My inspiration for creating this game was a class assignment that pushed me to craft an enthralling gaming experience using HTML, CSS, and pure JavaScript. The objective was to meet specific requirements, including a two-player mode, win and lose states, continuous gameplay, and the ability to play multiple rounds. I'm proud to say that I've accomplished all of this by providing an option to reset the board after each round.
 
 ## Screenshots
-![Alt text](<Screenshot 2023-07-21 at 5.40.36 PM.png>) ![Alt text](<Screenshot 2023-07-21 at 5.41.25 PM.png>) ![Alt text](<Screenshot 2023-07-21 at 5.41.57 PM.png>)
+![Alt text](<game-screenshot.png>) ![Alt text](<dark-mode-screenshot.png>) ![Alt text](<pink-mode-screenshot.png>) ![Alt text](<screen-recording.gif>)
+
 
 ## Tech/framework used
 I leveraged the power of web technologies to bring this game to life. It's built using a combination of:
