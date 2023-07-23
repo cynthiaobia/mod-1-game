@@ -31,7 +31,7 @@ I'm passionate about enhancing this game further, and your contributions can mak
 - **Responsiveness:** Help make the game fully responsive across all platforms, browsers, resolutions, and device types.
 - **Computer Automation:** I'm working on enabling users to play against the computer with automated moves. Join me in tackling this exciting challenge!
 
-If you're up for the challenge and want to contribute to the development of this game, feel free to clone this repository and start exploring. If you make any breakthroughs or have suggestions, let me know by opening an issue or submitting a pull request. Your feedback means a lot to me!
+If you're up for the challenge and want to contribute to the development of this game, feel free to clone or fork this repository and start exploring. If you make any breakthroughs or have suggestions, let me know by opening an issue or submitting a pull request. Your feedback means a lot to me!
 
 ## Credits
 This game wouldn't be the same without the support of the following resources:
