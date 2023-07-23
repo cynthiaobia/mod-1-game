@@ -151,7 +151,7 @@ function resetBoard(){
 function isGridItem(e){
     const selection = e.target;
     const alert = document.querySelector('.alert');
-    e.preventDefault();
+    // e.preventDefault();
     if ((selection.className === 'grid-item') && (gameOver === false)){ 
         const index = selection.id;
         if (player.move === true){

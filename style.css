@@ -92,6 +92,18 @@ button:hover {
     cursor: pointer;
 }
 
+.link {
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-size: small;
+}
+
+.link:hover {
+    text-decoration: underline;
+    opacity: .7;
+}
+
 .index-visual {
     display: none;
 }
