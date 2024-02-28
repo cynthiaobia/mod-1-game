@@ -46,6 +46,7 @@ This game wouldn't be the same without the support of the following resources:
 I'm always striving to make the game even better, and I have exciting plans for the future. Here's a sneak peek of what's coming:
 - **Computer Automation:** Experience the thrill of playing against the computer with automated moves.
 - **Responsive Design:** Enjoy seamless gameplay across all platforms, thanks to a fully responsive design.
+- **Customization:** Players will be able to create their own custom color schemes.
 
 Stay tuned for more updates as I make progress on these thrilling improvements!
 
